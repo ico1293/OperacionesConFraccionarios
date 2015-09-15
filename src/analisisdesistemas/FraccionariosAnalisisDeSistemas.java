@@ -173,7 +173,7 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
                         .addComponent(jRadioButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton5)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,7 +205,7 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
     public int[] Resta(int[] array) {
         // Resta de Fracciones
         int[] resultado = new int[2];
-        resultado[0] = (array[0] * array[3]) - (array[3] * array[2]);
+        resultado[0] = (array[0] * array[3]) - (array[1] * array[2]);
         resultado[1] = array[1] * array[3];
         return resultado;
     }
@@ -244,6 +244,18 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
         while ((array[0] != 0 && array[1] != 0) && (array[0] % 3 == 0 && array[1] % 3 == 0)) {
             array[0] = array[0] / 3;
             array[1] = array[1] / 3;
+        }
+         while ((array[0] != 0 && array[1] != 0) && (array[0] % 5 == 0 && array[1] % 5 == 0)) {
+            array[0] = array[0] / 5;
+            array[1] = array[1] / 5;
+        }
+          while ((array[0] != 0 && array[1] != 0) && (array[0] % 7 == 0 && array[1] % 7 == 0)) {
+            array[0] = array[0] / 7;
+            array[1] = array[1] / 7;
+        }
+           while ((array[0] != 0 && array[1] != 0) && (array[0] % 9 == 0 && array[1] % 9 == 0)) {
+            array[0] = array[0] / 9;
+            array[1] = array[1] / 9;
         }
 
         return array;
