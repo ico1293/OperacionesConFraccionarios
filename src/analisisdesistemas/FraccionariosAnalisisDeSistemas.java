@@ -268,7 +268,7 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
     private void calcular() {
         // Mostrar Fraccionario Resultante
         // ** AQUI LO LLAMAS **//
-        int[] array = LeerDatos(); //llamo a leer datos y los datos los almaceno en arrayada 
+        int[] array = LeerDatos(); //llamo a leer datos y los datos los almaceno en array
 
         //LOS DATOS TOMADOS SE ALMACENAN EN ARRAY
         int[] arrayResultado = new int[2];
