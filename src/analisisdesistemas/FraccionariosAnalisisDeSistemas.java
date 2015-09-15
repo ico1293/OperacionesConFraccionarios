@@ -212,7 +212,6 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
 
     public int[] Multiplicacion(int[] array) {
         // Multiplicaciones de Fracciones
-
         int[] resultado = new int[2];
         resultado[0] = array[0] * array[2];
         resultado[1] = array[1] * array[3];
@@ -230,16 +229,13 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
     public int[] Simplificacion(int[] array) {
         // Reducir Fraccion A
         int[] resultado = new int[2];
-        if (jRadioButton5.isSelected()) {
             resultado[0] = array[0];
             resultado[1] = array[1];
-        }
         return resultado;
     }
 
     public int[] SimplificacionTotal(int[] array) {
         // Simplificar todas las operaciones
-        //int[] resultado = new int[2];
         
         while ((array[0] != 0 && array[1] != 0) && (array[0] % 2 == 0 && array[1] % 2 == 0)) {
             array[0] = array[0] / 2;
