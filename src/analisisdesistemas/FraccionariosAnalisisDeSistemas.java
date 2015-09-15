@@ -11,13 +11,11 @@ package analisisdesistemas;
  * @version 2.0
  */
 public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
-    
+
     //Todas las variables de declaran al inicio de la clase
-     
-     /**
+    /**
      * Creates new form FraccionariosAnalisisDeSistemas
      */
-    
     public FraccionariosAnalisisDeSistemas() {
         initComponents();
     }
@@ -181,97 +179,112 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public int[] LeerDatos(){ 
+    public int[] LeerDatos() {
         int[] array = new int[4];
         array[0] = Integer.parseInt(jTextField1.getText());
         array[1] = Integer.parseInt(jTextField2.getText());
         array[2] = Integer.parseInt(jTextField3.getText());
-        array[3] = Integer.parseInt(jTextField4.getText());   
-       return array;
+        array[3] = Integer.parseInt(jTextField4.getText());
+        return array;
     }
+
     /**
-     * Metodo publico que retorna un arreglo de enteros 
+     * Metodo publico que retorna un arreglo de enteros
+     *
      * @param array Entra un arreglo de 4 datos que operara
      * @return retorna un arreglo de 2 datos que suma
      */
-    public int[] Suma(int[] array){
+    public int[] Suma(int[] array) {
         // Suma de Fracciones
         int[] resultado = new int[2];
         resultado[0] = (array[0] * array[3]) + (array[1] * array[2]);
         resultado[1] = array[1] * array[3];
         return resultado;
     }
-    public int[] Resta(int[] array){
+
+    public int[] Resta(int[] array) {
         // Resta de Fracciones
         int[] resultado = new int[2];
         resultado[0] = (array[0] * array[3]) - (array[3] * array[2]);
         resultado[1] = array[1] * array[3];
         return resultado;
     }
-     public int[] Multiplicacion(int[] array){
+
+    public int[] Multiplicacion(int[] array) {
         // Multiplicaciones de Fracciones
-       
+
         int[] resultado = new int[2];
         resultado[0] = array[0] * array[2];
         resultado[1] = array[1] * array[3];
         return resultado;
     }
-     public int[] Division(int[] array){
-         // Division de Fracciones
+
+    public int[] Division(int[] array) {
+        // Division de Fracciones
         int[] resultado = new int[2];
         resultado[0] = array[0] * array[3];
         resultado[1] = array[1] * array[2];
         return resultado;
-     }
-     public int[] Simplificacion(int[] array){
-         // Reducir Fraccion A
+    }
+
+    public int[] Simplificacion(int[] array) {
+        // Reducir Fraccion A
         int[] resultado = new int[2];
-        if (jRadioButton5.isSelected()){
+        if (jRadioButton5.isSelected()) {
             resultado[0] = array[0];
             resultado[1] = array[1];
         }
         return resultado;
-     }
-    public int[] SimplificacionTotal(int[] array){
+    }
+
+    public int[] SimplificacionTotal(int[] array) {
         // Simplificar todas las operaciones
+        //int[] resultado = new int[2];
         
-        int[] resultado = new int[2];
-        while ((resultado[0] != 0 && resultado[1] != 0) && (resultado[0] % 2 == 0 && resultado[1] % 2 == 0)) {
-            resultado[0] = resultado[0] / 2;
-            resultado[1] = resultado[1] / 2;
+        while ((array[0] != 0 && array[1] != 0) && (array[0] % 2 == 0 && array[1] % 2 == 0)) {
+            array[0] = array[0] / 2;
+            array[1] = array[1] / 2;
         }
-        while ((resultado[1] != 0 && resultado[2] != 0) && (resultado[1] % 3 == 0 && resultado[2] % 3 == 0)) {
-            resultado[0] = resultado[0] / 3;
-            resultado[1] = resultado[1] / 3;
+        while ((array[0] != 0 && array[1] != 0) && (array[0] % 3 == 0 && array[1] % 3 == 0)) {
+            array[0] = array[0] / 3;
+            array[1] = array[1] / 3;
         }
-        
-        return resultado;
+
+        return array;
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         calcular();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void calcular(){
+    private void calcular() {
         // Mostrar Fraccionario Resultante
         // ** AQUI LO LLAMAS **//
         int[] array = LeerDatos(); //llamo a leer datos y los datos los almaceno en arrayada 
-        
+
         //LOS DATOS TOMADOS SE ALMACENAN EN ARRAY
         int[] arrayResultado = new int[2];
-        if(jRadioButton1.isSelected()){
-            //LE ENVIO LOS DATOS ARRAY A SUMA
-           arrayResultado = Suma(array);
-        }else if(jRadioButton2.isSelected()){
-            //LE ENVIO LOS DATOS  DE ARRAY A RESTA
-           arrayResultado = Resta(array);
-        } 
-       // int[] arrayResultado = Suma(array);//llamo a suma con los datos obtenidos en array 
         
-       jTextField5.setText(String.valueOf(arrayResultado[0]));
-       jTextField6.setText(String.valueOf(arrayResultado[1]));
+        if (jRadioButton1.isSelected()) {
+            //LE ENVIO LOS DATOS ARRAY A SUMA
+            arrayResultado = Suma(array);
+        } else if (jRadioButton2.isSelected()) {
+            //LE ENVIO LOS DATOS  DE ARRAY A RESTA
+            arrayResultado = Resta(array);
+        } else if (jRadioButton3.isSelected()) {
+            arrayResultado = Division(array);
+        } else if (jRadioButton4.isSelected()) {
+            arrayResultado = Multiplicacion(array);
+        } else if (jRadioButton5.isSelected()) {
+            arrayResultado = Simplificacion(array);
+        }
+        
+        arrayResultado = SimplificacionTotal(arrayResultado);
+
+        jTextField5.setText(String.valueOf(arrayResultado[0]));
+        jTextField6.setText(String.valueOf(arrayResultado[1]));
     }
+
     /**
      * @param args the command line arguments
      */
