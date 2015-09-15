@@ -268,15 +268,20 @@ public class FraccionariosAnalisisDeSistemas extends javax.swing.JFrame {
             //LE ENVIO LOS DATOS  DE ARRAY A RESTA
             arrayResultado = Resta(array);
         } else if (jRadioButton3.isSelected()) {
+            //LE ENVIO LOS DATOS  DE ARRAY A DIVISION
             arrayResultado = Division(array);
         } else if (jRadioButton4.isSelected()) {
+            //LE ENVIO LOS DATOS  DE ARRAY A MULTIPLICACION
             arrayResultado = Multiplicacion(array);
         } else if (jRadioButton5.isSelected()) {
+            //LE ENVIO LOS DATOS  DE ARRAY A SIMPLIFICACION
             arrayResultado = Simplificacion(array);
         }
         
+        // SIMPLIFICA TODOS LOS RESULTADOS DE CADA OPERACION
         arrayResultado = SimplificacionTotal(arrayResultado);
-
+        
+        // MUESTRA LOS RESULTADOS
         jTextField5.setText(String.valueOf(arrayResultado[0]));
         jTextField6.setText(String.valueOf(arrayResultado[1]));
     }
